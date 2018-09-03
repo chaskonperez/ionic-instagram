@@ -1,0 +1,38 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content class="profile-content">
+	<div class="profile" padding>
+		<img [src]="user.profile_picture">
+		<h1>{{ user.full_name }}</h1>
+		<p>{{ user.username }}</p>
+		<ion-grid>
+		  <ion-row>
+		    <ion-col>
+		      <div>
+		        <small>Seguidores</small>
+		        <h1>{{ user.counts?.followed_by }}</h1>
+		      </div>
+		    </ion-col>
+		    <ion-col>
+		      <div>
+		        <small>Seguidos</small>
+		        <h1>{{ user.counts?.follows }}</h1>
+		      </div>
+		    </ion-col>
+		    <ion-col>
+		      <div>
+		        <small>Publicaciones</small>
+		        <h1>{{ user.counts?.media }}</h1>
+		      </div>
+		    </ion-col>
+		  </ion-row>
+		</ion-grid>
+  	</div>
+  	<div padding>
+  		<button ion-button round full (click)="shareImage()" [disabled]="loading">Compartir imagen</button>
+  	</div>
+</ion-content>
