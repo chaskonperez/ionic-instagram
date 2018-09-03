@@ -18,7 +18,7 @@ import { ProfilePage } from '../profile/profile';
 })
 export class LoginPage {
 	public client_id: string = 'bb97a18b63a34f96bb6a04975c192345';
-	public redirect_uri: string = 'http://localhost:8000';
+	public redirect_uri: string = 'http://localhost';
 	public loading: boolean = false;
 
   	constructor(
