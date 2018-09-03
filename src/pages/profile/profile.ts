@@ -44,7 +44,7 @@ export class ProfilePage {
 
   	shareImage() {
   		this.loading = true;
-    	this.instagram.share('https://picsum.photos/200/300/?random', 'Caption')
+    	this.instagram.share('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==', 'Caption')
     	.then(() => {
     		this.loading = false;
     		console.log('Shared!')

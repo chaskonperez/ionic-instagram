@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { ProfilePage } from '../profile/profile';
 
@@ -17,12 +18,13 @@ import { ProfilePage } from '../profile/profile';
 })
 export class LoginPage {
 	public client_id: string = 'bb97a18b63a34f96bb6a04975c192345';
-	public redirect_uri: string = 'http://localhost:8100';
+	public redirect_uri: string = 'http://localhost:8000';
 	public loading: boolean = false;
 
   	constructor(
   		public navCtrl: NavController, 
-  		public navParams: NavParams
+  		public navParams: NavParams,
+      private iab: InAppBrowser
   	) { }
 
   	ionViewDidLoad() {
@@ -45,7 +47,8 @@ export class LoginPage {
   			response_type: 'token'
   		};
   		let queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
-  		window.location.href = 'https://api.instagram.com/oauth/authorize/?' + queryString;
+
+      this.iab.create('https://api.instagram.com/oauth/authorize/?' + queryString);
   	}
 
 }
